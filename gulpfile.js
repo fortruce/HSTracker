@@ -24,7 +24,9 @@ var paths = {
 gulp.task('javascript', function() {
   var b = browserify({
     entries: paths.source.js,
-    transform: [babelify]
+    transform: [babelify.configure({
+      stage: 0
+    })]
   });
 
   return b.bundle()

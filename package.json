@@ -1,0 +1,28 @@
+{
+  "name": "hstracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fortruce/hstracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fortruce/hstracker/issues"
+  },
+  "homepage": "https://github.com/fortruce/hstracker#readme",
+  "dependencies": {
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
+    "gulp": "^3.9.0",
+    "pstracker": "0.0.2",
+    "react": "^0.13.3",
+    "redux": "^0.12.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}

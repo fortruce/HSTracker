@@ -1,12 +1,5 @@
-var React = require('react');
+import React from 'react';
+import App from './containers/App';
 
-var HelloWorld = React.createClass({
-  render() {
-    return (
-      <div>Hello World!</div>
-    );
-  }
-});
-
-React.render(<HelloWorld/>,
+React.render(<App />,
              document.getElementById('container'));
