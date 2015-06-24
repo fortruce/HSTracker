@@ -8,8 +8,12 @@ export default class HSApp {
 	render() {
 		return (
 			<Connector>
-				{({ hsStatus }) =>
-					<HSStatus status={hsStatus} />
+				{({ hsStatus, dispatch }) => {
+  					return (
+              <HSStatus status={hsStatus}
+                        {...bindActionCreators(HSStatusActions, dispatch)} />
+            );
+          }
 				}
 			</Connector>
 		);

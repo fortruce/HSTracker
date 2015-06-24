@@ -11,3 +11,11 @@ export function hsKilled() {
 		type: HEARTHSTONE_KILLED
 	};
 }
+
+export function trackStatus() {
+  return dispatch => {
+    var hstracker = pstracker({command: 'Hearthstone'});
+    hstracker.on('spawned', () => { dispatch(hsSpawned()); });
+    hstracker.on('killed', () => { dispatch(hsKilled()); });
+  }
+}

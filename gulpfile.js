@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var babelify = require('babelify');
+// var babel = require('gulp-babel');
 
 var paths = {
   source: {
@@ -18,6 +19,9 @@ var paths = {
     js: 'src/js/**/*.js',
     html: 'src/main.html',
     package: 'src/package.json'
+  },
+  dist: {
+    dir: 'dist/'
   }
 }
 

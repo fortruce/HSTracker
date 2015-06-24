@@ -1,13 +1,20 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 
-export default class HSStatus {
+export default class HSStatus extends Component {
 	static propTypes = {
+    trackStatus: PropTypes.func.isRequired,
 		status: PropTypes.bool.isRequired
 	};
 
+  constructor(props, context) {
+    super(props, context);
+    this.props.trackStatus();
+  }
+
 	render() {
+    console.log('rendering:', this.props.status);
 		return (
-			<p>{status ? 'Running' : 'Closed'}</p>
+			<p>{this.props.status ? 'Running' : 'Closed'}</p>
 		);
 	}
 }
