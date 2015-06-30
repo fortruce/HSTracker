@@ -1,12 +1,12 @@
 import { HEARTHSTONE_SPAWNED, HEARTHSTONE_KILLED } from '../constants/ActionTypes';
 
-export function hsSpawned() {
+function hsSpawned() {
 	return {
 		type: HEARTHSTONE_SPAWNED
 	};
 }
 
-export function hsKilled() {
+function hsKilled() {
 	return {
 		type: HEARTHSTONE_KILLED
 	};
@@ -14,8 +14,11 @@ export function hsKilled() {
 
 export function trackStatus() {
   return dispatch => {
-    var hstracker = pstracker({command: 'Hearthstone'});
-    hstracker.on('spawned', () => { dispatch(hsSpawned()); });
-    hstracker.on('killed', () => { dispatch(hsKilled()); });
+    var tracker = pstracker({
+      command: 'Hearthstone',
+      psargs: ['-A']
+    });
+    tracker.on('spawned', () => { dispatch(hsSpawned()); });
+    tracker.on('killed', () => { dispatch(hsKilled()); });
   }
 }
