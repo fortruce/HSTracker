@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var babelify = require('babelify');
+var buffer = require('vinyl-buffer');
+var sourcemaps = require('gulp-sourcemaps');
 // var babel = require('gulp-babel');
 
 var paths = {
@@ -28,6 +30,7 @@ var paths = {
 gulp.task('javascript', function() {
   var b = browserify({
     entries: paths.source.js,
+    debug: true,
     transform: [babelify.configure({
       stage: 0
     })]
@@ -35,6 +38,9 @@ gulp.task('javascript', function() {
 
   return b.bundle()
     .pipe(source(paths.build.js))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest(paths.build.dir));
 });
 
