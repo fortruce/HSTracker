@@ -17,8 +17,10 @@
 
     <script>
       var gulp = require('gulp');
-      gulp.task('reload', function() {
-        if (location) location.reload();
+      var gui = global.window.nwDispatcher.requireNwGui();
+      var win = gui.Window.get();
+      gulp.task('reload', function () {
+        win.reloadDev();
       });
 
       gulp.watch('**/*', ['reload']);
