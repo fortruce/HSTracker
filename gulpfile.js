@@ -4,7 +4,6 @@ var source = require('vinyl-source-stream');
 var babelify = require('babelify');
 var buffer = require('vinyl-buffer');
 var sourcemaps = require('gulp-sourcemaps');
-// var babel = require('gulp-babel');
 
 var paths = {
   source: {
@@ -40,7 +39,7 @@ gulp.task('javascript', function() {
     .pipe(source(paths.build.js))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(sourcemaps.write('../maps'))
+    .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest(paths.build.dir));
 });
 
